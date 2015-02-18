@@ -72,7 +72,7 @@
 	}
 	
 	header .header-up a span {
-		background: url("../IMAGES/logo.png") no-repeat scroll 0 50% transparent;
+		background: url("../images/logo.png") no-repeat scroll 0 50% transparent;
 		width: 205px;
 		height: 70px;
 		margin: 0 auto;
@@ -176,14 +176,14 @@
 
         header .header-cols-3 .search .search-ico
         {
-            background: url("../IMAGES/search.png") no-repeat scroll 100% 50% transparent;
+            background: url("../images/search.png") no-repeat scroll 100% 50% transparent;
             padding: 4px 28px 4px 0;          
             display: inline;
         }
 	    
 	header .header-cols-3 .cart .cart-ico
 	{
-	    background: url("../IMAGES/cart.png") no-repeat scroll 50% 50% transparent;
+	    background: url("../images/cart.png") no-repeat scroll 50% 50% transparent;
         display: inline;
         padding: 4px 0 4px 6px;
 	  }
@@ -452,7 +452,7 @@ header .header-sub-menu-banners > *:last-child {
     }
 
      header .header-cols-3  .search  button.search-fire {
-		background: url("../IMAGES/search.png") no-repeat scroll 0% 50% transparent;		
+		background: url("../images/search.png") no-repeat scroll 0% 50% transparent;		
 		position: relative;
 		height: 34px;
 		width: 44px;	
@@ -463,7 +463,7 @@ header .header-sub-menu-banners > *:last-child {
 	}
 
    header .header-cols-3  .search  button.search-fire {
-		background: url("../IMAGES/search.png") no-repeat scroll 0% 50% transparent;		
+		background: url("../images/search.png") no-repeat scroll 0% 50% transparent;		
 		position: relative;
 		height: 34px;
 		width: 44px;	
@@ -475,7 +475,7 @@ header .header-sub-menu-banners > *:last-child {
 
    
    header .header-cols-3  .search  button.search-close {
-		background: url("../IMAGES/searchClose.png") no-repeat scroll 0% 50% transparent;		
+		background: url("../images/searchClose.png") no-repeat scroll 0% 50% transparent;		
 		position: relative;
 		height: 34px;
 		width: 16px;	

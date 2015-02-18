@@ -46,7 +46,7 @@
 	}
 	
 	footer .footer-up a span {
-		background: url("../IMAGES/footer_up.png") no-repeat scroll 0 50% transparent;
+		background: url("../images/footer_up.png") no-repeat scroll 0 50% transparent;
 		width: 60px;
 		height: 60px;
 		margin: 0 auto;
@@ -73,12 +73,12 @@
 	}
 	
 	footer	.footer-cols-3 .contacts .phone {
-		background: url("../IMAGES/footer_phone.png") no-repeat scroll 0 50% transparent;
+		background: url("../images/footer_phone.png") no-repeat scroll 0 50% transparent;
 		padding-left: 20px;
 	}
 	
 	footer	.footer-cols-3 .contacts .email{
-		background: url("../IMAGES/footer_email.png") no-repeat scroll 0 50% transparent;
+		background: url("../images/footer_email.png") no-repeat scroll 0 50% transparent;
 		padding-left: 20px;
 	}
 	
@@ -116,31 +116,31 @@
 	}
 	
 	footer .social .facebook span {
-		background: url("../IMAGES/footer_social_facebook.png") no-repeat scroll 50% 50% transparent;
+		background: url("../images/footer_social_facebook.png") no-repeat scroll 50% 50% transparent;
 	}
 	
 	footer .social .twitter span {
-		background: url("../IMAGES/footer_social_twitter.png") no-repeat scroll 50% 50% transparent;
+		background: url("../images/footer_social_twitter.png") no-repeat scroll 50% 50% transparent;
 	}
 	
 	footer .social .instagram span {
-		background: url("../IMAGES/footer_social_instagram.png") no-repeat scroll 50% 50% transparent;
+		background: url("../images/footer_social_instagram.png") no-repeat scroll 50% 50% transparent;
 	}
 	
 	footer .social .pintrest span {
-		background: url("../IMAGES/footer_social_pintrest.png") no-repeat scroll 50% 50% transparent;
+		background: url("../images/footer_social_pintrest.png") no-repeat scroll 50% 50% transparent;
 	}
 	
 	footer .social .youtube span {
-		background: url("../IMAGES/footer_social_youtube.png") no-repeat scroll 50% 50% transparent;
+		background: url("../images/footer_social_youtube.png") no-repeat scroll 50% 50% transparent;
 	}
 	
 	footer .social .blog span {
-		background: url("../IMAGES/footer_social_blog.png") no-repeat scroll 50% 50% transparent;
+		background: url("../images/footer_social_blog.png") no-repeat scroll 50% 50% transparent;
 	}
 	
 	footer .social .app span {
-		background: url("../IMAGES/footer_social_app.png") no-repeat scroll 50% 50% transparent;
+		background: url("../images/footer_social_app.png") no-repeat scroll 50% 50% transparent;
 	}
 	
 	footer .join .join-mail {
@@ -236,7 +236,7 @@
 	}
 	
 	footer .footer-cols-4 ul.col4 li h2 {
-		background: url("../IMAGES/footer_myfreedom.png") no-repeat scroll 0 0 transparent;
+		background: url("../images/footer_myfreedom.png") no-repeat scroll 0 0 transparent;
 	}
 	
 	footer .footer-payments {
@@ -253,17 +253,17 @@
 	}
 	
 	footer .footer-payments .ge {
-		background: url("../IMAGES/footer_ge.png") no-repeat scroll 100% 50% transparent;
+		background: url("../images/footer_ge.png") no-repeat scroll 100% 50% transparent;
 		padding-right: 50px;
 	}
 	
 	footer .footer-payments .payments {
-		background: url("../IMAGES/footer_payments.png") no-repeat scroll 100% 50% transparent;
+		background: url("../images/footer_payments.png") no-repeat scroll 100% 50% transparent;
 		padding: 0 300px 0 25px;
 	}
 	
 	footer .footer-payments .norton {
-		background: url("../IMAGES/footer_norton.png") no-repeat scroll 100% 50% transparent;
+		background: url("../images/footer_norton.png") no-repeat scroll 100% 50% transparent;
 		float: right;
 		padding-right: 80px;
 	}
