@@ -1,0 +1,473 @@
+﻿html {
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+body {   
+    color: rgb(69,85,96);
+    font-size: 13pt;
+    font-family:'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header, footer, hgroup,
+nav, section {
+    display: block;
+}
+
+
+
+.slider {
+         z-index: 9;
+        width:100%;
+        max-width:1430px;
+         height: 485px;
+         overflow: hidden;
+         margin: 0 0 7px;
+         position: relative;
+         padding-top:6px;
+ }
+ .slider ul,
+ .slider li {
+ padding: 0;
+ margin: 0;
+ list-style-type: none;
+ }
+ .slider ul {
+ width: 9999px; 
+ }
+ .slider ul li {
+ list-style-type: none;
+float: left;
+ /*height: 290px;*/
+ }
+ .slider .nav {
+ position: absolute;
+ left: 50%;
+ bottom: 12px; 
+ }
+  .slider .nav div  
+  {
+      position:relative;
+      float:left;
+      left: -50%;
+ }
+ .slider .nav div span {
+ opacity: 0.9;
+ background: #fff;
+ margin: 0 10px 28px 0;
+ width: 8px;
+ height: 8px;
+ border-radius: 8px;
+ cursor: pointer;
+ overflow: hidden;
+ display: block;
+ float: left;
+ box-shadow: 0 1px 2px #000;
+ }
+ .slider .nav div span.on {
+ background: #cccccc;
+ }
+
+.content-inner
+{
+    margin: 0 auto;
+    }
+
+.content-inner table
+{
+   /* text-align:justify;*/
+    }
+    
+.content-inner table tbody tr td a
+{
+    display: inline-block;
+    text-decoration:none;
+    }
+
+.content-inner table tbody tr td >*
+    {      
+        padding-bottom:16px;
+    }
+    
+ .promo-info
+ {
+     height:5.5em;
+      width:100%;
+      color:#fff;
+     }   
+ .promo-info tbody tr td
+ {
+     padding-left: 20px;
+     }
+     
+ .promo-info .promo-col-1
+ {
+     width:100%;
+     font-size:18px;
+     }
+
+ .promo-info .promo-col-2
+ {    
+     font-size:14px;  
+     padding-top: 0;
+     padding-right: 20px;      
+}
+      
+.promo-info .promo-row-1 td.promo-col-1
+{    
+    padding-top:14px;
+    } 
+    
+.promo-info .promo-row-1 td
+{
+   /* padding-right: 20px;    */
+    }     
+ 
+ .promo-info .promo-row-2
+{
+    font-size:13px;
+    font-style:italic
+    }   
+.promo-info .promo-row-2 td
+{
+    padding-bottom:14px;
+    }
+
+ .promo-info .promo-row-1 td span
+{       
+ padding: 8px 8px;
+ border: 1px solid;
+}  
+
+.content-furniture
+{
+    float:right; width:710px; margin-left: 10px; 
+    }
+    
+ .content-furniture .content-inner table tbody tr td a
+{
+    display: inline-block;      
+    }   
+    .content-furniture .content-inner table  tbody tr td a
+{   
+    text-decoration:none;   
+   }
+
+ 
+ .content-furniture .content-inner table  tbody tr td a span
+{   
+    display: block;
+    text-align:center;
+    font-size:18px;
+    font-weight:bold;  
+    text-decoration:none; 
+}
+
+   .content-furniture .content-inner table  tbody tr td a:hover
+{   
+    text-decoration:underline;   
+   }
+
+
+  .content-furniture .content-inner table  tbody tr td a:hover span
+{   
+    text-decoration:underline;   
+}
+
+.content-furniture .content-inner table  tbody tr td a table span
+{   
+    text-decoration:none;  
+    font-size: 14px;
+    font-weight:normal; 
+   }
+
+.content-furniture .content-inner table  tbody tr td a:hover table span
+{   
+    text-decoration:none;  
+}
+
+
+.content-furniture .content-inner table  tbody tr td a:hover table span
+{   
+    text-decoration:none;  
+   
+}
+
+.content-furniture .content-inner table tbody tr td div
+{
+    text-align:left;
+    font-size:12px;
+}
+
+.content-furniture .content-inner table tbody tr td >*
+{      
+    padding-bottom:12px;
+}
+
+.content-inner-header 
+{
+    text-align:center!important;
+}
+
+.content-inner-header span
+{
+    background-color: #fff;
+    padding: 0 12px 0 12px;
+    font-size:18px;
+    font-weight:bold;
+}
+
+.xlarge-promo
+{
+    width:940px;
+    margin:0 10px 0 10px;
+}
+
+.large-promo
+{
+    width:700px;
+    margin:0 10px 0 10px;
+}
+.medium-promo
+{
+    width:460px;
+    margin:0 10px 0 10px;
+}
+.small-promo
+{
+    width:300px;
+    margin:0 10px 0 10px;
+}
+.xsmall-promo
+{
+    width:220px;
+    margin:0 10px 0 10px;
+}
+
+.resent-carousel
+{
+    margin: 0 auto;
+	padding: 0;		
+	width: 940px; 
+	float:left;   
+}
+
+.carousel-inner
+{
+    width: 860px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+.carousel  {
+   max-width: 1080px; /* ширина всего блока */
+   margin: 50px auto;
+   width:100%;
+}
+.carousel-wrapper {
+   margin: 0 32px; /* отступы для стрелок */
+   overflow: hidden; /* скрываем содержимое, выходящее за рамки основной области */
+   position:relative;
+}
+.carousel-items {
+   width: 10000px; /* устанавливаем большую ширину для набора элементов */
+   position: relative; /* позиционируем блок относительно основной области карусели */
+}
+.carousel-block {
+   float: left; /* выстраиваем все элементы карусели в ряд */
+   width: 140px; /* задаём ширину каждого элемента */
+   padding: 0 22px 0 0; /* делаем оступы, чтобы элементы не сливались */
+}
+.carousel-block img{
+    display:block;
+}
+ 
+/*********** BUTTONS ***********/
+.carousel-button-left a, .carousel-button-right a{
+   width: 11px; 
+   height: 18px; 
+   position: relative;
+   top: 80px; 
+   cursor: pointer; 
+   text-decoration:none;
+}
+.carousel-button-left a{
+   float: left; 
+   background: url(../images/carousel-left.png) no-repeat 50% 50%; 
+}
+.carousel-button-right a{
+   float: right;
+   background: url(../images/carousel-right.png) no-repeat 50% 50%; 
+} 
+
+/********************
+*   Mobile Styles   *
+********************/
+@media only screen and (max-width: 850px) {
+
+    /* header
+    ----------------------------------------------------------*/
+    header .float-left,
+    header .float-right {
+        float: none;
+    }
+
+    /* logo */
+    header .site-title {
+        margin: 10px;
+        text-align: center;
+    }
+
+    /* login */
+    #login {
+        font-size: .85em;
+        margin: 0 0 12px;
+        text-align: center;
+    }
+
+        #login ul {
+            margin: 5px 0;
+            padding: 0;
+        }
+
+        #login li {
+            display: inline;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        #login a {
+            background: none;
+            color: #999;
+            font-weight: 600;
+            margin: 2px;
+            padding: 0;
+        }
+
+        #login a:hover {
+            color: #333;
+        }
+
+    /* menu */
+    nav {
+        margin-bottom: 5px;
+    }
+
+    ul#menu {
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+
+        ul#menu li {
+            margin: 0;
+            padding: 0;
+        }
+
+
+    /* main layout
+    ----------------------------------------------------------*/
+    .main-content,
+    .featured + .main-content {
+        background-position: 10px 0;
+    }
+
+    .content-wrapper {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+    .featured .content-wrapper {
+        padding: 10px;
+    }
+
+    /* page content */
+    article, aside {
+        float: none;
+        width: 100%;
+    }
+
+    /* ordered list */
+    ol.round {
+        list-style-type: none;
+        padding-left: 0;
+    }
+
+        ol.round li {
+            padding-left: 10px;
+            margin: 25px 0;
+        }
+
+            ol.round li.zero,
+            ol.round li.one,
+            ol.round li.two,
+            ol.round li.three,
+            ol.round li.four,
+            ol.round li.five,
+            ol.round li.six,
+            ol.round li.seven,
+            ol.round li.eight,
+            ol.round li.nine {
+                background: none;
+            }
+
+     /* features */
+     section.feature {
+        float: none;
+        padding: 10px;
+        width: auto;
+     }
+
+        section.feature img {
+            color: #999;
+            content: attr(alt);
+            font-size: 1.5em;
+            font-weight: 600;
+        }
+
+    /* forms */
+    input {
+        width: 90%;
+    }
+
+    
+    
+    /* login page */
+    #loginForm {
+        border-right: none;
+        float: none;
+        width: auto;
+    }
+
+        #loginForm .validation-error {
+            display: block;
+            margin-left: 15px;
+        }
+
+    #socialLoginForm {
+        margin-left: 0;
+        float: none;
+        width: auto;
+    }
+
+    /* footer
+    ----------------------------------------------------------*/
+    footer .float-left,
+    footer .float-right {
+        float: none;
+    }
+
+    footer {
+        text-align: center;
+        height: auto;
+        padding: 10px 0;
+    }
+
+        footer p {
+            margin: 0;
+        }
+}
+/* END: Mobile Styles */

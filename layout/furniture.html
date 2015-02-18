@@ -1,0 +1,1067 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+     <meta charset="utf-8" />
+    <title>Freedomshop</title>   
+	<link href="CSS/footer.css" rel="stylesheet" />       
+    <link href="CSS/header.css" rel="stylesheet" /> 
+    <link href="CSS/site.css" rel="stylesheet" />
+	<link href="CSS/left_nav.css" rel="stylesheet" />
+     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".header-menu-item").hover(
+				function () {
+				    $(this).addClass('hover');
+				},
+				function () {
+				    $(this).removeClass('hover');
+				}
+			);
+
+        $(".slider").each(function () { 
+            var obj = $(this);
+            $(obj).append("<div class='nav'><div></div></div>");
+            $(obj).find("li").each(function () {
+                $(obj).find(".nav div").append("<span rel='" + $(this).index() + "'></span>");
+                $(this).addClass("slider" + $(this).index());
+            });
+            $(obj).find("span").first().addClass("on"); 
+        });
+    });
+    function sliderJS(obj, sl) { // slider function
+        var ul = $(sl).find("ul"); // 
+        var bl = $(sl).find("li.slider" + obj); 
+        var step = $(bl).width();
+        $(ul).animate({ marginLeft: "-" + step * obj }, 500); 
+    }
+    $(document).on("click", ".slider .nav div span", function () { // slider click navigate
+        var sl = $(this).closest(".slider"); 
+        $(sl).find("span").removeClass("on"); 
+        $(this).addClass("on"); 
+        var obj = $(this).attr("rel"); 
+        sliderJS(obj, sl); 
+        return false;
+    });
+
+    //Click on left arrow    
+    $(document).on('click', ".carousel-button-right", function () {
+        var carusel = $(this).parents('.carousel');
+        right_carusel(carusel);
+        return false;
+    });
+    //Click on right arrow
+    $(document).on('click', ".carousel-button-left", function () {
+        var carusel = $(this).parents('.carousel');
+        left_carusel(carusel);
+        return false;
+    });
+    function left_carusel(carusel) {
+        var block_width = $(carusel).find('.carousel-block').outerWidth();
+        $(carusel).find(".carousel-items .carousel-block").eq(-1).clone().prependTo($(carusel).find(".carousel-items"));
+        $(carusel).find(".carousel-items").css({ "left": "-" + block_width + "px" });
+        $(carusel).find(".carousel-items .carousel-block").eq(-1).remove();
+        $(carusel).find(".carousel-items").animate({ left: "0px" }, 140);
+
+    }
+    function right_carusel(carusel) {
+        var block_width = $(carusel).find('.carousel-block').outerWidth();
+        $(carusel).find(".carousel-items").animate({ left: "-" + block_width + "px" }, 140, function () {
+            $(carusel).find(".carousel-items .carousel-block").eq(0).clone().appendTo($(carusel).find(".carousel-items"));
+            $(carusel).find(".carousel-items .carousel-block").eq(0).remove();
+            $(carusel).find(".carousel-items").css({ "left": "0px" });
+        });
+    }
+
+    $(function () {       
+        auto_right('.carousel:first');
+    })
+
+    // Auto scrolling
+    function auto_right(carusel) {
+        setInterval(function () {
+            if (!$(carusel).is('.hover'))
+                right_carusel(carusel);
+        }, 3000)
+    }
+    //Maouse on on carousel
+    $(document).on('mouseenter', '.carousel', function () { $(this).addClass('hover') })
+    //Mouse out from carousel
+    $(document).on('mouseleave', '.carousel', function () { $(this).removeClass('hover') })
+</script>
+<header>
+		<div class="header-light">
+			<div class="header-wrapper">				
+				<div class="header-cols-2">
+					<div class="social">
+						 <ul class="hr">
+                           <li><a runat="server" href="#">MYFREEDOM</a></li>
+                           <li><a runat="server" href="#">STORES</a></li>
+                           <li><a runat="server" href="#">DESIGN SERVICE</a></li>
+                           <li><a runat="server" href="#">INSPIRATION</a></li>
+                           <li><a runat="server" href="#">BLOG</a></li>
+                          </ul>                       
+					</div>			
+					<div class="join">						
+                        <ul class="hr">
+                           <li>DELIVERY IN: <a runat="server" href="#">NY</a></li>
+                           <li><a runat="server" href="#">WISHLIST</a></li>
+                           <li><a runat="server" href="#">SING_IN ~ JOIN</a></li>
+                         </ul>						
+					</div>
+				</div>
+                <div class="header-cols-3">
+					<div class="search">						
+                        <a class="search-ico" href="#">SEARCH</a>					
+					</div>			
+                    	<div class="header-up"><a href="#"><span></span></a></div>
+					<div class="cart">
+                        <a class="cart-ico" href="#"><span class="items">9 ITEMS</span><span>$4035.00</span>	</a>	
+					</div>
+				</div>
+                <div class="header-menu">                  
+					<ul>
+						<li class="header-menu-item new">
+							<a runat="server" href="~/">new arrivals</a>
+							<div class="header-sub-menu">
+								<table><tbody>
+									<tr class="header-sub-menu-items">
+										<td>
+											<ul>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#">Furniture</a></h2></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Living</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Entryway</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Dining</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Office</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Bedroom</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Outdoor</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#"></a></li>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#"></a></h2></li>
+										<td>
+											<ul>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#">Outdoor</a></h2></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Outdoor Lounge</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Outdoor Dining</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Outdoor Decoration</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Garden</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#"></a></li>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#">Bed & Bath</a></h2></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Bedroom</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Bedding Basics</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Bathroom</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Bathroom Accessories</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Bedroom Furniture</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#"></a></li>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#"></a></h2></li>
+										<td>
+											<ul>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#">Rugs</a></h2></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Rugs</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Accessories</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#"></a></li>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#">Kitchen & Dining</a></h2></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Tableware</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Servingware</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Glassware</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Kitchen</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Napery</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Dining Room Furniture</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#"></a></li>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#"></a></h2></li>
+										<td>
+											<ul>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#">Storage</a></h2></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Boxes & Baskets</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Wardrobe</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Bookcases</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Wall Units</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Office</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#"></a></li>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#">Lighting</a></h2></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Lighting</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Accessories</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#"></a></li>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#"></a></h2></li>
+										<td>
+											<ul>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#">Decorate</a></h2></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Cushions & Throws</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Home Accessories</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Wall</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Windows</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Artificials</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#"></a></li>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#"></a></h2></li>
+										<td>
+											<ul>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#">More</a></h2></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Sale</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Custom Chair Gallery</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Gift Card</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">MyFreedom</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Furniture Care Products</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#"></a></li>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#">Inspiration</a></h2></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Christmas Entertaining</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">How to pick your sofa</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Shop the look</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">New summer catalogue</a></li>
+											</ul>
+										</td>
+
+									</tr>
+									<tr>
+										<td colspan=6>
+											<div class="header-sub-menu-banners">
+											<a runat="server" href="#"><img src="IMAGES/PromoFurniture2.png"></a>
+											<a runat="server" href="#"><img src="IMAGES/PromoFurniture3.png"></a>
+											<a runat="server" href="#"><img src="IMAGES/PromoFurniture4.png"></a>
+											<a runat="server" href="#"><img src="IMAGES/Promo-220-FreedomBlog.png"></a>
+											</div>
+										</td>
+									</tr>
+								</tbody></table>
+							</div>
+						</li>
+						<li class="header-menu-item furniture">
+							<a runat="server" href="Furniture.html">furniture</a>
+							<div class="header-sub-menu">
+								<table><tbody>
+									<tr class="header-sub-menu-items">
+										<td>
+											<ul>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="Living.html">Living</a></h2></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Sofas</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Sofa Beds</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Modulars</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Armchairs</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Ottomans</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Entertainment Units</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Bookcases</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Wall Units</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Side Tables</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Coffee Tables</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Console Tables</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Occasional Chairs</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Mirrors</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#"></a></li>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#"></a></h2></li>
+										<td>
+											<ul>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#">Entryway</a></h2></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Console Table</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Mirrors</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Wall Units</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Coat Racks</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#"></a></li>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#">Dining</a></h2></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Dining Tables</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Dining Stools</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Dining Chairs</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Buffets & Hutches</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Bar Stools</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#"></a></li>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#"></a></h2></li>
+										<td>
+											<ul>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#">Office</a></h2></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Office Chairs</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Desks</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Office Bookcases</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Office Storage</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#"></a></li>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#"></a></h2></li>
+										<td>
+											<ul>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#">Bedroom</a></h2></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Beds</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Mattresses</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Wardrobes</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Bedside Tables</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Tallboys & Dressers</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Mirrors</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Trunks</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Occasional Chairs</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Wardrobe Storage</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Bedside Table Lamps</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Kids Bedroom</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#"></a></li>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#"></a></h2></li>
+										<td>
+											<ul>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#">Outdoor</a></h2></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Outdoor Sofas</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Outdoor Tables</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Chairs & Benches</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Dining Packages</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Occasional Tables & Trolleys</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Lounge Packages</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Umbrellas</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Director Chairs</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Sunlounges</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Beach Chairs</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#"></a></li>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#"></a></h2></li>
+										<td>
+											<ul>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#">More</a></h2></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">New Arrivals</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Sale</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Custom Chair Gallery</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Gift Card</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">MyFreedom</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Furniture Care Products</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#"></a></li>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#">Inspiration</a></h2></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Christmas Entertaining</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">How to pick your sofa</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Shop the look</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">New summer catalogue</a></li>
+											</ul>
+										</td>
+									</tr>
+									<tr>
+										<td colspan=6>
+											<div class="header-sub-menu-banners">
+											<a runat="server" href="#"><img src="IMAGES/PromoFurniture2.png"></a>
+											<a runat="server" href="#"><img src="IMAGES/PromoFurniture3.png"></a>
+											<a runat="server" href="#"><img src="IMAGES/PromoFurniture4.png"></a>
+											<a runat="server" href="#"><img src="IMAGES/Promo-220-FreedomBlog.png"></a>
+											</div>
+										</td>
+									</tr>
+								</tbody></table>
+							</div>
+						</li>
+						<li class="header-menu-item outdoor">
+							<a runat="server" href="#">outdoor</a>
+							<div class="header-sub-menu">
+								<table><tbody>
+									<tr class="header-sub-menu-items">
+										<td>
+											<ul>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#">Outdoor Lounge</a></h2></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Outdoor Sofas</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Occassional Tables & Trolleys</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Outdoor Lounge Packages</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Umbrellas</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Director Chairs</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Sunlounges & Beach Chairs</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Accessories Outdoor</a></li>
+											</ul>
+										</td>
+										<td>
+											<ul>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#">Outdoor Dining</a></h2></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Tables</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Chairs & Benches</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Dining Packages</a></li>
+											</ul>
+										</td>
+										<td>
+											<ul>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#">Outdoor Decoration</a></h2></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Decorator Accents</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Cushions</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Rugs</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Tabletop</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Dinnerware</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Lanterns</a></li>
+											</ul>
+										</td>
+										<td>
+											<ul>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#">Garden</a></h2></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Planters & Pots</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Water Features</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Artificial Plants</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Utilities</a></li>
+											</ul>
+										</td>
+										<td>
+											<ul>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#">More</a></h2></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">New Arrivals</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Sale</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">MyFreedom</a></li>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#">Inspiration</a></h2></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">New summer catalogue</a></li>
+											</ul>
+										</td>
+									</tr>
+									<tr>
+										<td colspan=5>
+											<div class="header-sub-menu-banners">
+											<a runat="server" href="#"><img src="IMAGES/PromoFurniture2.png"></a>
+											<a runat="server" href="#"><img src="IMAGES/PromoFurniture3.png"></a>
+											<a runat="server" href="#"><img src="IMAGES/PromoFurniture4.png"></a>
+											<a runat="server" href="#"><img src="IMAGES/Promo-220-FreedomBlog.png"></a>
+											</div>
+										</td>
+									</tr>
+								</tbody></table>
+							</div>
+						</li>
+						<li class="header-menu-item bed">
+							<a runat="server" href="#">bed & bath</a>
+							<div class="header-sub-menu">
+								<table><tbody>
+									<tr class="header-sub-menu-items">
+										<td>
+											<ul>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#">Bedroom</a></h2></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Quilt Covers</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Sheets</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Pillowcases</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Bedspreads</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Cushions & Throws</a></li>
+											</ul>
+										</td>
+										<td>
+											<ul>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#">Bedding Bascs</a></h2></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Quilt Inners</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Mattress Protectors</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Pillows</a></li>
+											</ul>
+										</td>
+										<td>
+											<ul>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#">Bathroom</a></h2></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Bathmat</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Towels</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Hand Towels</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Face Washers</a></li>
+											</ul>
+										</td>
+										<td>
+											<ul>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#">Bathroom Accessories</a></h2></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Rubbish Bins</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Bathroom Accessories</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Shower Curtains</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Bathroom Fittings</a></li>
+											</ul>
+										</td>
+										<td>
+											<ul>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#">More</a></h2></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">New Arrivals</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Sale</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">MyFreedom</a></li>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#">Inspiration</a></h2></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">New summer catalogue</a></li>
+											</ul>
+										</td>
+									</tr>
+									<tr>
+										<td colspan=5>
+											<div class="header-sub-menu-banners">
+											<a runat="server" href="#"><img src="IMAGES/PromoFurniture2.png"></a>
+											<a runat="server" href="#"><img src="IMAGES/PromoFurniture3.png"></a>
+											<a runat="server" href="#"><img src="IMAGES/PromoFurniture4.png"></a>
+											<a runat="server" href="#"><img src="IMAGES/Promo-220-FreedomBlog.png"></a>
+											</div>
+										</td>
+									</tr>
+								</tbody></table>
+							</div>
+						</li>
+						<li class="header-menu-item rugs">
+							<a runat="server" href="#">rugs</a>
+							<div class="header-sub-menu">
+								<table><tbody>
+									<tr class="header-sub-menu-items">
+										<td>
+											<ul>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#">Rugs</a></h2></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Solid Rugs</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Patterned Rugs</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Runners</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Jute Rugs</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Outdoor Rugs</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Mats</a></li>
+											</ul>
+										</td>
+										<td>
+											<ul>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#">Accessories</a></h2></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Underlays</a></li>
+											</ul>
+										</td>
+										<td>
+											<ul>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#">More</a></h2></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">New Arrivals</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Sale</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">MyFreedom</a></li>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#">Inspiration</a></h2></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Christmas Entertaining</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">New summer catalogue</a></li>
+											</ul>
+										</td>
+									</tr>
+									<tr>
+										<td colspan=3>
+											<div class="header-sub-menu-banners">
+											<a runat="server" href="#"><img src="IMAGES/Promo-220-SaleItems.png"></a>
+											<a runat="server" href="#"><img src="IMAGES/Promo-220-NewArrivals.png"></a>
+											</div>
+										</td>
+									</tr>
+								</tbody></table>
+							</div>
+						</li>
+						<li class="header-menu-item kitchen">
+							<a runat="server" href="#">kitchen & dining</a>
+							<div class="header-sub-menu">
+								<table><tbody>
+									<tr class="header-sub-menu-items">
+										<td>
+											<ul>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#">Tableware</a></h2></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Plates</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Bowls</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Side Plates</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Mugs & Cups</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Dinner Sets</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Cutlery</a></li>
+											</ul>
+										</td>
+										<td>
+											<ul>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#">Servingware</a></h2></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Serving Platters & Boards</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Serving Bowls</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Specialty Servingware</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Serving Baskets</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Trays</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Drinkware</a></li>
+											</ul>
+										</td>
+										<td>
+											<ul>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#">Glassware</a></h2></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Wine & Champagne Glasses</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Beer & Cider Glasses</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Cocktail Glasses</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Pitchers & Decanters</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Bottles</a></li>
+											</ul>
+										</td>
+										<td>
+											<ul>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#">Kitchen</a></h2></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Wine Racks</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Food Storage</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Utensils/Gadgets</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Food Preparation</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Rubbish Bins</a></li>
+											</ul>
+										</td>
+										<td>
+											<ul>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#">Napery</a></h2></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Tablecloths</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Tablerunners</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Coasters</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Teatowels/Aprons</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Napkin & Placemats</a></li>
+											</ul>
+										</td>
+										<td>
+											<ul>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#">More</a></h2></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">New Arrivals</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Sale</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">MyFreedom</a></li>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#">Inspiration</a></h2></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Shop the look</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">New summer catalogue</a></li>
+											</ul>
+										</td>
+									</tr>
+									<tr>
+										<td colspan=6>
+											<div class="header-sub-menu-banners">
+											<a runat="server" href="#"><img src="IMAGES/PromoFurniture2.png"></a>
+											<a runat="server" href="#"><img src="IMAGES/PromoFurniture3.png"></a>
+											<a runat="server" href="#"><img src="IMAGES/PromoFurniture4.png"></a>
+											<a runat="server" href="#"><img src="IMAGES/Promo-220-FreedomBlog.png"></a>
+											</div>
+										</td>
+									</tr>
+								</tbody></table>
+							</div>
+						</li>
+						<li class="header-menu-item storage">
+							<a runat="server" href="#">storage</a>
+							<div class="header-sub-menu">
+								<table><tbody>
+									<tr class="header-sub-menu-items">
+										<td>
+											<ul>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#">Boxes & Baskets</a></h2></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Storage Units</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Trunks</a></li>
+											</ul>
+										</td>
+										<td>
+											<ul>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#">Wardrobe</a></h2></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Coat Racks</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Laundry Hampers</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Wardrobe Storage</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Mobile Wardrobe</a></li>
+											</ul>
+										</td>
+										<td>
+											<ul>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#">Bookcases</a></h2></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Magazine Racks</a></li>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#">Wall Units</a></h2></li>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#">Office</a></h2></li>
+											</ul>
+										</td>
+										<td>
+											<ul>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#">More</a></h2></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">New Arrivals</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Sale</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">MyFreedom</a></li>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#">Inspiration</a></h2></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">New summer catalogue</a></li>
+											</ul>
+										</td>
+									</tr>
+									<tr>
+										<td colspan=4>
+											<div class="header-sub-menu-banners">
+											<a runat="server" href="#"><img src="IMAGES/PromoFurniture3.png"></a>
+											<a runat="server" href="#"><img src="IMAGES/PromoFurniture4.png"></a>
+											<a runat="server" href="#"><img src="IMAGES/Promo-220-FreedomBlog.png"></a>
+											</div>
+										</td>
+									</tr>
+								</tbody></table>
+							</div>
+						</li>
+						<li class="header-menu-item lighting">
+							<a runat="server" href="#">lighting</a>
+							<div class="header-sub-menu ">
+								<table><tbody>
+									<tr class="header-sub-menu-items">
+										<td>
+											<ul>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#">Lighting</a></h2></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Ceiling Lighting</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Floor Lighting</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Table Lighting</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Task Lighting</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">String Lights</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Loose Shades</a></li>
+											</ul>
+										</td>
+										<td>
+											<ul>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#">Accessories</a></h2></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Globes</a></li>
+											</ul>
+										</td>
+										<td>
+											<ul>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#">More</a></h2></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">New Arrivals</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Sale</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">MyFreedom</a></li>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#">Inspiration</a></h2></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Shop the look</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">New summer catalogue</a></li>
+											</ul>
+										</td>
+									</tr>
+									<tr>
+										<td colspan=3>
+											<div class="header-sub-menu-banners">
+											<a runat="server" href="#"><img src="IMAGES/Promo-220-SaleItems.png"></a>
+											<a runat="server" href="#"><img src="IMAGES/Promo-220-NewArrivals.png"></a>
+											</div>
+										</td>
+									</tr>
+								</tbody></table>
+							</div>
+						</li>
+						<li class="header-menu-item decorate">
+							<a runat="server" href="#">decorate</a>
+							<div class="header-sub-menu ">
+								<table><tbody>
+									<tr class="header-sub-menu-items">
+										<td>
+											<ul>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#">Cushions & Throws</a></h2></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Cushions</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Chair Pads/Futons</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Floor Cushions</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Throws</a></li>
+											</ul>
+										</td>
+										<td>
+											<ul>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#">Home Accessories</a></h2></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Decorative Vessels</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Decorator Accents</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Bowls</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Candles</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Candleholders</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Vases</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Photo Frames</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Trays</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Screens</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Pets</a></li>
+											</ul>
+										</td>
+										<td>
+											<ul>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#">Wall</a></h2></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Prints</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Canvas</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Clocks</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Wall Decoration</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Mirrors</a></li>
+											</ul>
+										<td>
+											<ul>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#">Windows</a></h2></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Readymade Blinds</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Blinds Accessories</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Readymade Curtains</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Vertical</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Pleated</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Curtain Accessories</a></li>
+											</ul>
+										</td>
+										<td>
+											<ul>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#">Artificials</a></h2></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Flowers</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Folliage</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Potted Plants</a></li>
+											</ul>
+										</td>
+										<td>
+											<ul>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#">More</a></h2></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">New Arrivals</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Sale</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Gift Card</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">MyFreedom</a></li>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#">Inspiration</a></h2></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Christmas Entertaining</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Shop the look</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">New summer catalogue</a></li>
+											</ul>
+										</td>
+									</tr>
+									<tr>
+										<td colspan=6>
+											<div class="header-sub-menu-banners">
+											<a runat="server" href="#"><img src="IMAGES/PromoFurniture2.png"></a>
+											<a runat="server" href="#"><img src="IMAGES/PromoFurniture3.png"></a>
+											<a runat="server" href="#"><img src="IMAGES/PromoFurniture4.png"></a>
+											<a runat="server" href="#"><img src="IMAGES/Promo-220-FreedomBlog.png"></a>
+											</div>
+										</td>
+									</tr>
+								</tbody></table>
+							</div>
+						</li>
+						<li class="header-menu-item gifts">
+							<a runat="server" href="#">gifts</a>
+						</li>
+						<li class="header-menu-item sale">
+							<a runat="server" href="#">sale</a>
+							<div class="header-sub-menu ">
+								<table><tbody>
+									<tr class="header-sub-menu-items">
+										<td>
+											<ul>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#">Sale</a></h2></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Furniture</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Outdoor</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Bed & Bath</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Rugs</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Kitchen & Dining</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Storage</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Lightning</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Decorate</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Gifts</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">50% Off</a></li>
+											</ul>
+										</td>
+										<td>
+											<ul>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#">Offers</a></h2></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">MyFreedom</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">The Freedom Sale</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Interest Free Payment Plans</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Autoclub Membership Offers</a></li>
+											</ul>
+										</td>
+										<td>
+											<ul>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#">More</a></h2></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">New Arrivals</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Gift Card</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">MyFreedom</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Furniture Care Products</a></li>
+												<li class="header-sub-menu-item"><h2><a runat="server" href="#">Inspiration</a></h2></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Christmas Entertaining</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">How to pick your sofa</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">Shop the look</a></li>
+												<li class="header-sub-menu-item"><a runat="server" href="#">New summer catalogue</a></li>
+											</ul>
+										</td>
+									</tr>
+									<tr>
+										<td colspan=3>
+											<div class="header-sub-menu-banners">
+												<a runat="server" href="#"><img src="IMAGES/PromoFurniture2.png"></a>
+												<a runat="server" href="#"><img src="IMAGES/PromoFurniture3.png"></a>
+											</div>
+										</td>
+									</tr>
+								</tbody></table>
+							</div>
+						</li>
+					</ul>                            
+                </div>   
+			</div>
+		</div>		
+	</header>
+
+    <div id="body">
+		<div class="breadcrumbs">
+			<a href="index.html">Home</a>
+			<span class="breadcrumb-arrow">></span>		
+			<span class="breadcrumb-end">Furniture</span>
+		</div>
+		<div class="left-nav">
+			<ul>
+				<li class="left-nav-section-header">LIVING</li>
+				<li><a href="#">Sofas</a></a></li>
+				<li><a href="#">Sofa Beds</a></li>
+				<li><a href="#">Modulars</a></li>
+				<li><a href="#">Armchairs</a></li>
+				<li><a href="#">Ottomans</a></li>
+				<li><a href="#">Entertainment Units</a></li>
+				<li><a href="#">Bookcases</a></li>
+				<li><a href="#">Wall Units</a></li>
+				<li><a href="#">Side Tables</a></li>
+				<li><a href="#">Coffee Tables</a></li>
+				<li><a href="#">Console Tables</a></li>
+				<li><a href="#">Occasional Chairs</a></li>
+				<li><a href="#">Mirrors</a></li>
+				<li class="left-nav-section-header"><a href="#">ENTRYWAY</a></li>
+                <li><a href="#">Console Table</a></a></li>
+				<li><a href="#">Mirrors</a></li>
+				<li><a href="#">Wall Unite</a></li>
+				<li><a href="#">Coat Racks</a></li>
+				<li class="left-nav-section-header"><a href="#">DINING</a></li>                
+				<li><a href="#">Dinnig Tables</a></li>
+				<li><a href="#">Dining Stools</a></li>
+				<li><a href="#">Dining Chairs</a></li>
+				<li><a href="#">Buffets & Hutches</a></li>
+				<li><a href="#">Bar Stools</a></li>
+				<li class="left-nav-section-header"><a href="#">OFFICE</a></li>                
+				<li><a href="#">Office Chairs</a></li>
+				<li><a href="#">Desks</a></li>
+				<li><a href="#">Office Bookcases</a></li>
+				<li><a href="#">Office Storage</a></li>
+				<li class="left-nav-section-header"><a href="#">BEDROOM</a></li>
+                <li><a href="#">Beds</a></li>
+				<li><a href="#">Mattresses</a></li>
+				<li><a href="#">Wardrobes</a></li>
+				<li><a href="#">Bedside Tables</a></li>
+				<li><a href="#">Tallboys & Dressers</a></li>
+				<li><a href="#">Entertainment Units</a></li>
+				<li><a href="#">Mirrors</a></li>
+				<li><a href="#">Trunks</a></li>
+				<li><a href="#">Occasional Chairs</a></li>
+				<li><a href="#">Wardrobe Storage</a></li>
+				<li><a href="#">Bedside Table Lamps</a></li>
+				<li><a href="#">Kids Bedroom</a></li>
+				<li class="left-nav-section-header"><a href="#">OUTDOOR</a></li>
+                <li><a href="#">Outdoor Sofas</a></li>
+				<li><a href="#">Outdoor Tables</a></li>
+				<li><a href="#">Chairs & Benches</a></li>
+				<li><a href="#">Dining Packages</a></li>
+				<li><a href="#">Occasional Tables & Trolleys</a></li>
+				<li><a href="#">Lounge Packages</a></li>
+				<li><a href="#">Umbrellas</a></li>
+				<li><a href="#">Director Chairs</a></li>
+				<li><a href="#">Sunlounges</a></li>
+				<li><a href="#">Bitch Chairs</a></li>
+				<li class="left-nav-section-header"><a href="#">MORE</a></li>
+				<li><a href="#">New Arrivals</a></li>
+				<li><a href="#">Sale</a></li>
+				<li><a href="#">Custom Chair Gallery</a></li>
+				<li><a href="#">Gift Card</a></li>
+				<li><a href="#">MyFreedom</a></li>
+				<li><a href="#">Furniture Care Products</a></li>
+				<li class="left-nav-section-header"><a href="#">INSPIRATION</a></li>
+				<li><a href="#">Christmas Entertaining</a></li>
+				<li><a href="#">How to pick your sofa</a></li>
+				<li><a href="#">Shop the look</a></li>
+				<li><a href="#">New summer catalogue</a></li>
+			</ul>
+		</div>
+		<div class="content-furniture" >       
+                <div class="content-inner">                
+                    <table>
+                        <tr>
+                            <td>
+                               <a href="#"  class="large-promo"><img src="images/Promo-Furniture.png"/></a><a href="Living.html"  class="xsmall-promo">
+                                   <img src="images/Living.png"/><span>Living</span></a><a href="#" class="xsmall-promo">
+                                       <img src="images/Entryway.png"/><span>Entryway</span></a><a href="#" class="xsmall-promo">
+                                           <img src="images/Dining.png"/><span>Dining</span></a><a href="#" class="xsmall-promo">
+                                               <img src="images/Office.png"/><span>Office</span></a><a href="#"  class="xsmall-promo">
+                                                   <img src="images/Bedroom.png"/><span>Bedroom</span></a><a href="#" class="xsmall-promo">
+                                                        <img src="images/Outdoor.png"/><span>Outdoor</span></a><a href="#"  class="xsmall-promo">
+                                                            <img src="images/Newarrivals.png"/><span>New Arrivals</span></a><a href="#"  class="xsmall-promo">
+                                                                <img src="images/Sale.png"/><span>Sale</span></a>    
+                                <div><span >Freedom began in 1981 with a vision to help all Australians enjoy a better life. It came down to three simple ideas: Great design doesn't just look good, it enchances the quality of your life. Great style never dates, it just gets better with age. Great design and stle don't need a great big price tag to match.    </span>                  
+                                        </div>   
+                                <div><span>Affordably, and enjoyably. Simple as that really. Values we believe in.    </span>                  
+                                        </div>   
+                                <div style="background:url('images/InspOfferLine.png') 50% 50% repeat-x; width:100%;">
+                                <div class="content-inner-header"> <span >Inspiration Offers Ideas</span></div>   
+                                </div>    
+                                <a href="#" class="xsmall-promo"><img src="images/InspOffer1.png"/><span>Custom Chair Gallery</span></a><a href="#" class="xsmall-promo">
+                                    <img src="images/InspOffer2.png"/><span>Christmas Entertaining</span></a><a href="#" class="xsmall-promo">
+                                        <img src="images/InspOffer3.png"/><span>Shop the Look</span></a><a href="#" class="xsmall-promo">
+                                            <img src="images/PromoFurniture2.png"/></a><a href="#" class="xsmall-promo">
+                                                <img src="images/PromoFurniture3.png"/></a><a href="#" class="xsmall-promo"><img src="images/PromoFurniture4.png"/></a>                                   
+                                <div><span>Freedom began in 1981 with a vision to help all Australians enjoy a better life. It came down to three simple ideas: Great design doesn't just look good, it enchances the quality of your life. Great style never dates, it just gets better with age. Great design and stle don't need a great big price tag to match.    </span>                  
+                                        </div>   
+                                <div><span>Affordably, and enjoyably. Simple as that really. Values we believe in.    </span>                  
+                                        </div>  
+                                
+                             </td>
+                        </tr>
+                    </table>     
+                </div> 	
+
+             
+    </div>
+
+    <div class="resent-carousel" >
+    <div style="background:url('images/InspOfferLine.png') 50% 50% repeat-x; width:100%;">
+                                <div class="content-inner-header"> <span >Resently View Items</span></div> </div>
+    <div class="carousel-inner" >
+      <div class="carousel-button-left"><a href="#"></a></div> 
+      <div class="carousel-button-right"><a href="#"></a></div> 
+        <div class="carousel-wrapper"> 
+           <div class="carousel-items"> 
+              <div class="carousel-block">
+                    <img src="images/Resent01.jpg" alt="" />
+              </div>
+              <div class="carousel-block">
+                    <img src="images/Resent02.jpg" alt="" />
+              </div>
+              <div class="carousel-block">
+                    <img src="images/Resent03.jpg" alt="" />
+              </div>
+              <div class="carousel-block">
+                    <img src="images/Resent04.jpg" alt="" />
+              </div>
+              <div class="carousel-block">
+                    <img src="images/Resent05.png" alt="" />
+              </div>         
+        </div>
+        </div>
+   </div>
+</div>    
+    </div>
+
+	<footer>
+		<div class="footer-light">
+			<div class="footer-wrapper">
+				<div class="footer-up"><a href="#"><span></span></a></div>
+				<div class="footer-cols-3">
+					<div class="contacts">
+						<div>Contact Us:</div>
+						<a class="phone" href="tel:1300-135-588">Call us 1300-135-588</a>
+						<a class="email" href="mailto:someone@example.com?Subject=Hello" target="_top">Email Us</a>
+					</div>
+					
+					<ul class="social">
+						<li><a class="facebook" href="#"><span></span></a></li>
+						<li><a class="twitter" href="#"><span></span></a></li>
+						<li><a class="instagram" href="#"><span></span></a></li>
+						<li><a class="pintrest" href="#"><span></span></a></li>
+						<li><a class="youtube" href="#"><span></span></a></li>
+						<li><a class="blog" href="#"><span></span></a></li>
+						<li><a class="app" href="#"><span></span></a></li>
+					</ul>
+					<div class="join">
+						<div>Don’t miss out</div>
+						<div class="small">Get the latest news, offers & ideas</div>
+						<div class="join-mail">
+							<input placeholder="email address" type="text">
+							<button>JOIN</button>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer-dark">
+			<div class="footer-wrapper">
+				<div class="footer-cols-4">
+					<ul>
+						<li><h2>Shop Online</h2></li>
+						<li><a href="#">Ways to shop with us</a></li>
+						<li><a href="#">Shipping & returns</a></li>
+						<li><a href="#">Interest Free Finance</a></li>
+						<li><a href="#">Get Inspired</a></li>
+						<li><a href="#">Your Account</a></li>
+					</ul>
+					<ul>
+						<li><h2>Freedom</h2></li>
+						<li><a href="#">The Freedom Story</a></li>
+						<li><a href="#">Latest Catalogue</a></li>
+						<li><a href="#">Careers at Freedom</a></li>
+						<li><a href="#">Terms and Conditions</a></li>
+						<li><a href="#">Privacy</a></li>
+					</ul>
+					<ul>
+						<li><h2>Need Assistance?</h2></li>
+						<li><a href="#">Freedom > help</a></li>
+						<li><a href="#">Assembly instructions</a></li>
+						<li><a href="#">Product care</a></li>
+						<li><a href="#">Product recalls</a></li>
+						<li><a href="#">Sitemap</a></li>
+					</ul>
+					<ul class="col4">
+						<li><h2>&nbsp;</h2></li>
+						<li><a href="#">Login&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;Join</a></li>
+						<li class="story">Packed with useful year-round rewards, MyFreedom is a special club devoted to you and your home. Refresh your space...</li>
+						<li><a href="#">Find out more...</a></li>
+					</ul>
+				</div>
+				<div class="footer-payments">
+					<div class="ge">Get Interest free offers with GE Finance:</div>
+					<div class="payments">We accept:</div>
+					<div class="norton">Shop securely with:</div>
+				</div>
+				<div class="footer-brands-copyright">
+					<span>Group Brands:</span><span class="brands">Bay Leather Republic, Snooze, Poco.<span>
+					<span class="copyright">All content © Copyright. All Rights Reserved.<span>
+				</div>
+			</div>
+		</div>
+    </footer>
+</body>
+</html>
